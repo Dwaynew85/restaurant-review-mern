@@ -25,7 +25,7 @@ export default class RestaurantsDAO {
                 query = { $text: { $search: filters["name"] } }
             } else if ("cuisine" in filters) {
                 query = { "cuisine": { $eq: filters["cuisine"] } }
-            } else if ("zipcode" in filters) {
+            } else if ("zipcode" in filters) { 
                 query = { "address.zipcode": { $eq: filters["zipcode"] } }
             }
         }
@@ -49,7 +49,7 @@ export default class RestaurantsDAO {
             return { restaurantsList, totalNumRestaurants }
         } catch (e) {
             console.error(
-                `Unable to convert cursor to array or problem counting documents, ${e}` // double check
+                `Unable to convert cursor to array or problem counting documents, ${e}` 
             )
             return { restaurantsList: [], totalNumRestaurants: 0 }
         }
